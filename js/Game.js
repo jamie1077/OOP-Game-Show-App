@@ -10,8 +10,8 @@ class Game {
     }
 
     /**
-    * Creates phrases for use in game
-    * @return {array} An array of phrases that could be used in the game
+     * Creates phrases for use in game
+     * @return {array} An array of phrases that could be used in the game
     */
     createPhrases(){
         const phrases = [
@@ -27,8 +27,8 @@ class Game {
 
     
     /**
-    * Selects random phrase from phrases property
-    * @return {Object} Phrase object chosen to be used
+     * Selects random phrase from phrases property
+     * @return {Object} Phrase object chosen to be used
     */
     getRandomPhrase(){
         const randomPhase = Math.floor(Math.random() * this.phrases.length);
@@ -37,7 +37,7 @@ class Game {
 
 
     /**
-     * Begins game by selecting a random phrase and displaying it to user
+     * Starts game by selecting a random phrase and displaying it to user
     */
     startGame() {
         const overlay = document.querySelector('#overlay');
@@ -48,7 +48,10 @@ class Game {
     };
 
 
-    
+    /**
+     * Resets the game by clearing the phrase list, resetting the keyboard button class back to 'key'
+     * and resetting the heart images back to live state
+     */
     resetGame(){
         const phrase = document.querySelector('#phrase ul');
         phrase.innerHTML = '';
@@ -62,7 +65,6 @@ class Game {
         const lives = document.querySelectorAll('#scoreboard li img');
         lives.forEach(life => {
             life.src = 'images/liveHeart.png';
-            life.parentElement.className = 'tries';
         });
 
         this.missed = 0;
@@ -84,14 +86,17 @@ class Game {
 
 
     /**
-    * Increases the value of the missed property
-    * Removes a life from the scoreboard
-    * Checks if player has remaining lives and ends game if player is out
+     * Increments the value of the missed property
+     * Removes a life from the scoreboard by visually changing the heart image and alt property
+     * Checks if the missed property equals 5 then game is over
     */
     removeLife() {
         const lives = document.querySelectorAll('#scoreboard li img');
+        
         lives[this.missed].src = 'images/lostHeart.png';
         lives[this.missed].alt = 'Lost Heart Icon';
+        console.log(lives[this.missed]);
+        
         this.missed++;
 
         if(this.missed === 5){
@@ -99,11 +104,12 @@ class Game {
         }
     };
 
+
     /**
      * Handles onscreen keyboard button clicks
      * @param (HTMLButtonElement) button - The clicked button element
     */
-        handleInteraction(button) {
+    handleInteraction(button) {
         const key = button.textContent;
         const guessed = this.activePhrase.checkLetter(key);
         
@@ -136,8 +142,8 @@ class Game {
 
 
     /**
-    * Displays game over message
-    * @param {boolean} gameWon - Whether or not the user won the game
+     * Displays game over message
+     * @param {boolean} gameWon - Whether or not the user won the game
     */
     gameOver(gameWon) {
         const statusOverlay = document.querySelector('#overlay');

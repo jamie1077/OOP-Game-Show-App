@@ -6,11 +6,10 @@ class Phrase {
         this.phrase = phrase.toLowerCase();
     }
 
-
     /**
-    * Display phrase on game board
-    * This method adds letter placeholders to the display when the game starts. 
-    * Each letter is presented by an empty box, one list item for each letter
+     * Display phrase on game board
+     * This method adds letter placeholders to the display when the game starts. 
+     * Each letter is presented by an empty box, one list item for each letter
     */
     addPhraseToDisplay(){
         const phraseList = document.querySelector('#phrase ul');
@@ -42,8 +41,8 @@ class Phrase {
 
 
     /**
-    * Displays passed letter on screen after a match is found
-    * @param (string) letter - Letter to display
+     * Displays passed letter on screen after a match is found
+     * @param (string) letter - Letter to display
     */
      showMatchedLetter(letter) {
       const matchingLetters = document.querySelectorAll(`.${letter}`);
