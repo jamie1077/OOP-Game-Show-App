@@ -11,3 +11,7 @@ A player can guess a letter only once. After they’ve guessed a letter, that le
 
 ## Extra features and custom styles
 Lets players use their physical computer keyboard to enter guesses using the keydown event.
+
+Bounce animation added to the phrase when correct letters are chosen
+Hover styles added to start/play again button
+Color changes to the layout of the start, end and game screens
