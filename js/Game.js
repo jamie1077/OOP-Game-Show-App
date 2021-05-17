@@ -149,13 +149,16 @@ class Game {
         const statusOverlay = document.querySelector('#overlay');
         statusOverlay.style.display = 'flex';
         const gameOverTitle = document.querySelector('#game-over-message');
+        const gameButton = document.querySelector('#btn__reset');
         
         if(gameWon){
             statusOverlay.className = 'win';
             gameOverTitle.innerHTML = 'Congratulations you won!';
+            gameButton.innerHTML = 'Play again';
         }else{
             statusOverlay.className = 'lose';
-            gameOverTitle.innerHTML = 'Better luck next time!';
+            gameOverTitle.innerHTML = 'Oh No! Better luck next time';
+            gameButton.innerHTML = 'Play again';
         }
         this.resetGame();
     };

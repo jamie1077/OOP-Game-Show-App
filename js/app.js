@@ -12,7 +12,7 @@ const keys = document.querySelectorAll('.key');
  * Listens for clicks on the start game button
  */
 startGame.addEventListener('click', () => {
-    game = new Game;
+    game = new Game();
     game.startGame();
 });
 
