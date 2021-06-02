@@ -30,7 +30,7 @@ document.addEventListener('keydown', (e) => {
     //get the value of the key pressed and pass it to the handleInteraction method
     let keyPress = e.key;
     keys.forEach((key) => {
-        if(key.textContent === keyPress){
+        if(key.textContent === keyPress && key.disabled === false){
             game.handleInteraction(key);
         }
     });
