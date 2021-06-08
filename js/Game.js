@@ -77,10 +77,8 @@ class Game {
     */
     checkForWin() {
         const hiddenLetters = document.querySelectorAll('.hide');
-        if(hiddenLetters.length === 0){
+        if(hiddenLetters.length === 0 ){
             return true;
-        } else{
-            return false;
         }
     };
 
@@ -94,9 +92,7 @@ class Game {
         const lives = document.querySelectorAll('#scoreboard li img');
         
         lives[this.missed].src = 'images/lostHeart.png';
-        lives[this.missed].alt = 'Lost Heart Icon';
-        console.log(lives[this.missed]);
-        
+        lives[this.missed].alt = 'Lost Heart Icon';       
         this.missed++;
 
         if(this.missed === 5){

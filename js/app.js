@@ -7,6 +7,7 @@ let game;
 const startGame = document.querySelector('#btn__reset');
 const keyboard = document.querySelector('#qwerty');
 const keys = document.querySelectorAll('.key');
+const overlay = document.querySelector('#overlay');
 
 /**
  * Listens for clicks on the start game button
@@ -29,9 +30,17 @@ keyboard.addEventListener('click', (e) =>{
 document.addEventListener('keydown', (e) => {
     //get the value of the key pressed and pass it to the handleInteraction method
     let keyPress = e.key;
-    keys.forEach((key) => {
-        if(key.textContent === keyPress && key.disabled === false){
-            game.handleInteraction(key);
-        }
-    });
+    //if the game is in progress then allow users to interact with the keyboard
+    if(gameInProgress()){
+        keys.forEach((key) => {
+            if(key.textContent === keyPress && key.disabled === false){
+                game.handleInteraction(key);
+            }
+        })
+    }
 });
+
+//Function for use in keybard interaction
+function gameInProgress() {
+    return overlay.style.display === 'none';
+}
